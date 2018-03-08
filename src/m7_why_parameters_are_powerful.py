@@ -2,18 +2,18 @@
 This module lets you experience the POWER of FUNCTIONS and PARAMETERS.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Ryan Antenore.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 import rosegraphics as rg
 
 
 def main():
     """ Calls the   TEST   functions in this module. """
-    run_test_draw_circles()
+
     # Un-comment the next lines when you are ready to use them.
     # run_test_better_draw_circles()
-    # run_test_even_better_draw_circles()
+    run_test_even_better_draw_circles()
 
 
 # ----------------------------------------------------------------------
@@ -26,6 +26,7 @@ def main():
 #  In the REST of this exercise (see below), you will implement
 #  MORE POWERFUL versions of the   draw_circles   function.
 # ----------------------------------------------------------------------
+
 
 def run_test_draw_circles():
     """ Tests the   draw_circles   function. """
@@ -94,8 +95,45 @@ def draw_circles():
 # ----------------------------------------------------------------------
 
 
+def run_test_better_draw_circles():
+
+    # Test 1
+    print()
+    print('--------------------------------------------------')
+    print('Testing  draw_circles:  See graphics window')
+    print('--------------------------------------------------')
+    better_draw_circles(14)
+
+    # Test 2
+    print()
+    print('--------------------------------------------------')
+    print('Testing  draw_circles:  See graphics window')
+    print('--------------------------------------------------')
+    better_draw_circles(3)
+
+    # Test 3
+    print()
+    print('--------------------------------------------------')
+    print('Testing  draw_circles:  See graphics window')
+    print('--------------------------------------------------')
+    better_draw_circles(20)
+
+
+def better_draw_circles(x):
+
+    window = rg.RoseWindow(400, 400)
+
+    center = rg.Point(200, 200)
+    for k in range(21):
+        circle = rg.Circle(center, x * k)
+        circle.attach_to(window)
+        window.render(0.05)  # Pauses for 0.05 seconds after rendering.
+
+    window.close_on_mouse_click()
+
+
 # ----------------------------------------------------------------------
-# TODO: 3.
+# Done: 3.
 #   In the previous exercise, you made a MORE POWERFUL version
 #   of draw_circles by introducing a PARAMETER for the amount by
 #   which the radii of the concentric circles increase.
@@ -123,7 +161,48 @@ def draw_circles():
 #   can you make some fun pictures?
 # ----------------------------------------------------------------------
 
+
+def run_test_even_better_draw_circles():
+    p1 = rg.Point(200, 200)
+    p2 = rg.Point(300, 300)
+    p3 = rg.Point(100, 300)
+
+    # Test 1
+    print()
+    print('--------------------------------------------------')
+    print('Testing  draw_circles:  See graphics window')
+    print('--------------------------------------------------')
+    even_better_draw_circles(3, p1, 100)
+
+    # Test 2
+    print()
+    print('--------------------------------------------------')
+    print('Testing  draw_circles:  See graphics window')
+    print('--------------------------------------------------')
+    even_better_draw_circles(20, p2, 10)
+
+    # Test 3
+    print()
+    print('--------------------------------------------------')
+    print('Testing  draw_circles:  See graphics window')
+    print('--------------------------------------------------')
+    even_better_draw_circles(7, p3, 25)
+
+
+def even_better_draw_circles(x, y, z):
+    window = rg.RoseWindow(400, 400)
+
+    center = y
+    for k in range(z):
+        circle = rg.Circle(center, x * k)
+        circle.attach_to(window)
+        window.render(0.05)  # Pauses for 0.05 seconds after rendering.
+
+    window.close_on_mouse_click()
+
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
 # ----------------------------------------------------------------------
+
+
 main()
